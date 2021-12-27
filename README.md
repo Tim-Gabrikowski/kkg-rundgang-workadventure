@@ -1,4 +1,4 @@
-https://docs.github.com/articles/setting-up-your-pages-site-repository/
+https://tim-gabrikowski.github.io/kkg-rundgang-workadventure/
 
 # WorkAdventure Map Starter Kit
 
