@@ -106,7 +106,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"https:\/\/tim-gabrikowski.github.io\/kkg-rundgang-workadventure\/rooms\/aula.json"
+                 "value":"https:\/\/play.workadventu.re\/@\/kurt_korber_gymnasium\/tagderoffenentur\/aula"
                 }],
          "type":"tilelayer",
          "visible":true,
