@@ -106,7 +106,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"\/rooms\/aula.json"
+                 "value":"https:\/\/tim-gabrikowski.github.io\/kkg-rundgang-workadventure\/rooms\/aula.json"
                 }],
          "type":"tilelayer",
          "visible":true,
