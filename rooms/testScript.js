@@ -1,4 +1,8 @@
 WA.chat.sendChatMessage(
-	"Hallo du kleiner ....",
-	"Generic Server Script Moderator"
+	"Hallo, ich bin GSSM. Das steht für Generic Server Script Moderator.\n Ich begleite dich auf dem Server.",
+	"GSSM"
 );
+
+WA.room.onEnterLayer("stageTrigger").subscribe(() => {
+	WA.chat.sendChatMessage(`Welcome On Stage, ${WA.player.name}! `, "GSSM");
+});
