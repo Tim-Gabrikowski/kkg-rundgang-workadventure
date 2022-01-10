@@ -1,5 +1,8 @@
 //hide Gang:
 WA.room.hideLayer("Gang");
+WA.room.showLayer("Chemie2");
+WA.room.showLayer("Chemie");
+WA.room.showLayer("Bio");
 
 //Chemie "Dach":
 WA.room.onEnterLayer("Trigger-Chemie").subscribe(() => {
