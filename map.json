@@ -106,7 +106,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"https:\/\/play.workadventu.re\/@\/kurt_korber_gymnasium\/tagderoffenentur\/aula"
+                 "value":"\/rooms\/aula.json"
                 }],
          "type":"tilelayer",
          "visible":true,
@@ -124,7 +124,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"https:\/\/play.workadventu.re\/@\/kurt_korber_gymnasium\/tagderoffenentur\/mint"
+                 "value":"\/rooms\/MINT.json"
                 }],
          "type":"tilelayer",
          "visible":true,
@@ -217,8 +217,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":444,
-                 "y":4
+                 "x":448,
+                 "y":2
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -262,7 +262,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":63,
+ "nextlayerid":64,
  "nextobjectid":10,
  "orientation":"orthogonal",
  "properties":[

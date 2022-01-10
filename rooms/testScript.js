@@ -1,5 +1,5 @@
 WA.chat.sendChatMessage(
-	"Hallo, ich bin GSSM. Das steht für Generic Server Script Moderator.\n Ich begleite dich auf dem Server.",
+	"Hallo, ich bin GSSM. Das steht für Generic Server Script Moderator.\n Ich begleite dich auf dem Server.\n Du bist nun in der Aula",
 	"GSSM"
 );
 

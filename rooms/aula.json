@@ -30,7 +30,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"https:\/\/play.workadventu.re\/@\/kurt_korber_gymnasium\/tagderoffenentur\/starterkit"
+                 "value":"..\/map.json"
                 }],
          "type":"tilelayer",
          "visible":true,
