@@ -106,7 +106,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"\/rooms\/aula.json"
+                 "value":"\/kkg-rundgang-workadventure\/rooms\/aula.json"
                 }],
          "type":"tilelayer",
          "visible":true,
@@ -124,7 +124,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"\/rooms\/MINT.json"
+                 "value":"\/kkg-rundgang-workadventure\/rooms\/MINT.json"
                 }],
          "type":"tilelayer",
          "visible":true,

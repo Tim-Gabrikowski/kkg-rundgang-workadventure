@@ -30,7 +30,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"..\/map.json"
+                 "value":"\/kkg-rundgang-workadventure\/map.json"
                 }],
          "type":"tilelayer",
          "visible":true,
