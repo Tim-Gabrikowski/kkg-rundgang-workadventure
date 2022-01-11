@@ -220,6 +220,8 @@
                  "x":448,
                  "y":2
                 }],
+         "offsetx":-11,
+         "offsety":6,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
