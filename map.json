@@ -124,7 +124,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"\/kkg-rundgang-workadventure\/rooms\/MINT.json"
+                 "value":"\/kkg-rundgang-workadventure\/rooms\/MINT.json#E2"
                 }],
          "type":"tilelayer",
          "visible":true,
