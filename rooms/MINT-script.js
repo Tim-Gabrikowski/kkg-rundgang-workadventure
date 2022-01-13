@@ -4,6 +4,7 @@ WA.room.hideLayer("roofs/Gang");
 WA.room.showLayer("roofs/Chemie2");
 WA.room.showLayer("roofs/Chemie");
 WA.room.showLayer("roofs/Bio");
+WA.room.showLayer("roofs/Bio2");
 
 //Chemie "Dach":
 WA.room.onEnterLayer("trigger/Trigger-Chemie").subscribe(() => {
@@ -45,6 +46,16 @@ WA.room.onLeaveLayer("trigger/Trigger-Physik").subscribe(() => {
 	WA.room.hideLayer("roofs/Gang");
 });
 
+//Bio "Dach":
+WA.room.onEnterLayer("trigger/Trigger-Bio2").subscribe(() => {
+	WA.room.hideLayer("roofs/Bio2");
+	WA.room.showLayer("roofs/Gang");
+});
+WA.room.onLeaveLayer("trigger/Trigger-Bio2").subscribe(() => {
+	WA.room.showLayer("roofs/Bio2");
+	WA.room.hideLayer("roofs/Gang");
+});
+
 //TestPopup:
 let EasterEggPopup;
 
@@ -53,7 +64,7 @@ let EasterEggPopup;
 EasterEggPopup = WA.room
 	.onEnterLayer("easterEggs/Physik-Trigger")
 	.subscribe(() => {
-		WA.ui.openPopup("EasterEgg-Physik", `${pickRandomspruch()}`, [
+		WA.ui.openPopup("EasterEgg-Physik", `${pickSpruch()}`, [
 			{
 				label: "Close",
 				className: "primary",
@@ -64,9 +75,16 @@ EasterEggPopup = WA.room
 			},
 		]);
 	});
-function pickRandomspruch() {
-	var spruch = sprueche[Math.floor(Math.random() * sprueche.length)];
-	return `${spruch.text}\n ${spruch.from}`;
+
+let indexOfSpruch = 0;
+function pickSpruch() {
+	var spruch = sprueche[indexOfSpruch];
+	indexOfSpruch++;
+	if (indexOfSpruch >= sprueche.length) {
+		sprueche.sort(() => Math.random() - 0.5);
+		indexOfSpruch = 0;
+	}
+	return `${spruch.text}`;
 }
 
 var sprueche = [
@@ -191,3 +209,5 @@ var sprueche = [
 		from: "~",
 	},
 ];
+
+sprueche.sort(() => Math.random() - 0.5);
