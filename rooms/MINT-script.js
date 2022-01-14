@@ -5,6 +5,8 @@ WA.room.showLayer("roofs/Chemie2");
 WA.room.showLayer("roofs/Chemie");
 WA.room.showLayer("roofs/Bio");
 WA.room.showLayer("roofs/Bio2");
+WA.room.showLayer("roofs/Physik");
+WA.room.showLayer("roofs/Physik2");
 
 /*
  *
