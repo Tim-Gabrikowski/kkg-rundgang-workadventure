@@ -1,3 +1,7 @@
+//VersionInfo:
+const versionInfo =
+	"=====START OF MESSAGE=====\nScriptVersion: 3\n LastGitPush: 14.01.2021 ca.16:30\n last Change in script:\n Add this message, Add EasterEgg Script \n =====END OF MESSAGE=====";
+
 //hide Gang:
 WA.room.hideLayer("roofs/Gang");
 //show Roofs:
@@ -8,6 +12,11 @@ WA.room.showLayer("roofs/Bio2");
 WA.room.showLayer("roofs/Physik");
 WA.room.showLayer("roofs/Physik2");
 
+/* WA.chat.onChatMessage((message) => {
+	if ((message = "!versionInfo")) {
+		WA.chat.sendChatMessage(versionInfo, "GSSM");
+	}
+}); */
 /*
  *
  *================"DÄCHER"================
