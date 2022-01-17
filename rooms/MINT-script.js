@@ -83,7 +83,7 @@ let EasterEggStuhl;
 EasterEggStuhl = WA.room
 	.onEnterLayer("easterEggs/Stuhl-EasterEgg")
 	.subscribe(() => {
-		WA.ui.openPopup("MeinStuhl-Physik2", `Tim: Das ist mein Platz!`, [
+		WA.ui.openPopup("badge3", `Tim: Das ist mein Platz!`, [
 			{
 				label: "Close",
 				className: "primary",
@@ -94,6 +94,41 @@ EasterEggStuhl = WA.room
 			},
 		]);
 	});
+	
+	
+// -------------------Popup Badges im Mint Bereich ----------------	
+let physikBadgePopup;
+physikBadgePopup = WA.room
+	.onEnterLayer("easterEggs/badgePhysik")
+	.subscribe(() => {
+		WA.ui.openPopup("badge3", 'ein(e) Buchstabe/Zahl des Lösungswortes: T', [
+			{
+				label: "Schliessen",
+				className: "primary",
+				callback: (popup) => {
+					// Close the popup when the "Close" button is pressed.
+					popup.close();
+				},
+			},
+		]);
+	});
+	
+let chemieBadgePopup;
+chemieBadgePopup = WA.room
+	.onEnterLayer("easterEggs/badgeChemie")
+	.subscribe(() => {
+		WA.ui.openPopup("badge4", 'ein(e) Buchstabe/Zahl des Lösungswortes: 2', [
+			{
+				label: "Schliessen",
+				className: "primary",
+				callback: (popup) => {
+					// Close the popup when the "Close" button is pressed.
+					popup.close();
+				},
+			},
+		]);
+	});
+//------------- Ende Popup Badges Mint	--------------------------------------
 
 //Sprüche Popup:
 let EasterEggPopup;
@@ -163,7 +198,7 @@ var sprueche = [
 		no: 0,
 	},
 	{
-		text: "Glauben kannst du in Religonsunterricht",
+		text: "Glauben kannst du im Religonsunterricht",
 		from: "~Herr Akyildiz",
 		no: 0,
 	},
@@ -287,46 +322,4 @@ for (var i = 0; i < sprueche.length; i++) {
 sprueche.sort(() => Math.random() - 0.5);
 
 
-// ----------------------------------Alex-Badges-----------------------------------------
-WA.onInit().then(() => {	
-	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgePhysikPopup = WA.room.onEnterLayer("badgePhysik").subscribe(() => {
-		WA.controls.disablePlayerControls();
-		WA.ui.openPopup("badge3", 'ein(e) Buchstabe/Zahl des Lösungswortes: T', [{
-			label: "schliessen",
-			className: "primary",
-			callback: (popup) => {
-				WA.controls.restorePlayerControls();
-				// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
-				popup.close();
-			}
-		}]);
-	});
 
-	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("badgePhysik").subscribe(() => {
-		badgePhysikPopup.close();
-	});
-	
-	
-	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgeChemiePopup = WA.room.onEnterLayer("badgeChemie").subscribe(() => {
-		WA.controls.disablePlayerControls();
-		WA.ui.openPopup("badge4", 'ein(e) Buchstabe/Zahl des Lösungswortes: 2', [{
-			label: "schliessen",
-			className: "primary",
-			callback: (popup) => {
-				WA.controls.restorePlayerControls();
-				// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
-				popup.close();
-			}
-		}]);
-	});
-
-	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("badgeChemie").subscribe(() => {
-		badgeChemiePopup.close();
-	});
-});
-
-// Ende Alex Badges
