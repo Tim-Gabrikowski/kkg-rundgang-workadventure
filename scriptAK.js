@@ -1,7 +1,7 @@
 let helloWorldPopup;
 WA.onInit().then(() => {
 	// Popup öffenen, wenn man die Schule betritt...
-	eingangsPopup = WA.room.onEnterLayer("eingang").subscribe(() => {
+	/*eingangsPopup = WA.room.onEnterLayer("eingang").subscribe(() => {
 		WA.controls.disablePlayerControls();
 		WA.ui.openPopup("popupStart", 'Herzlich Willkommen! ... ', [{
 			label: "schliessen",
@@ -17,11 +17,11 @@ WA.onInit().then(() => {
 	// Schließe Popup, wenn man map verlässt.
 	WA.room.onLeaveLayer("eingang").subscribe(() => {
 		eingangsPopup.close();
-	});
+	});*/
 	
 	
 	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgeAulaPopup = WA.room.onEnterLayer("badgeAula").subscribe(() => {
+	badgeEingangPopup = WA.room.onEnterLayer("badgeEingang").subscribe(() => {
 		WA.controls.disablePlayerControls();
 		WA.ui.openPopup("badge1", 'ein(e) Buchstabe/Zahl des Lösungswortes: 2', [{
 			label: "schliessen",
@@ -35,7 +35,7 @@ WA.onInit().then(() => {
 	});
 
 	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("badgeAula").subscribe(() => {
-		badgeAulaPopup.close();
+	WA.room.onLeaveLayer("badgeEingang").subscribe(() => {
+		badgeEingangPopup.close();
 	});
 });
