@@ -4,9 +4,9 @@ WA.onInit().then(() => {
 	
 	
 	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgeAulaPopup = WA.room.onEnterLayer("Aula-Trigger").subscribe(() => {
+	badgeAulaPopup = WA.room.onEnterLayer("badgeAula").subscribe(() => {
 		WA.controls.disablePlayerControls();
-		WA.ui.openPopup("badge4", 'ein(e) Buchstabe/Zahl des Lösungswortes: T', [{
+		WA.ui.openPopup("badge2", 'ein(e) Buchstabe/Zahl des Lösungswortes: T', [{
 			label: "schliessen",
 			className: "primary",
 			callback: (popup) => {
@@ -18,7 +18,7 @@ WA.onInit().then(() => {
 	});
 
 	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("Aula-Trigger").subscribe(() => {
+	WA.room.onLeaveLayer("badgeAula").subscribe(() => {
 		badgeAulaPopup.close();
 	});
 	
