@@ -285,3 +285,48 @@ for (var i = 0; i < sprueche.length; i++) {
 }
 //randomise the Array:
 sprueche.sort(() => Math.random() - 0.5);
+
+
+// ----------------------------------Alex-Badges-----------------------------------------
+WA.onInit().then(() => {	
+	// Popup öffenen, wenn man den Badge in der Aula findet ...
+	badgePhysikPopup = WA.room.onEnterLayer("badgePhysik").subscribe(() => {
+		WA.controls.disablePlayerControls();
+		WA.ui.openPopup("badge3", 'ein(e) Buchstabe/Zahl des Lösungswortes: T', [{
+			label: "schliessen",
+			className: "primary",
+			callback: (popup) => {
+				WA.controls.restorePlayerControls();
+				// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
+				popup.close();
+			}
+		}]);
+	});
+
+	// Schließe Popup, wenn man map verlässt.
+	WA.room.onLeaveLayer("badgePhysik").subscribe(() => {
+		badgePhysikPopup.close();
+	});
+	
+	
+	// Popup öffenen, wenn man den Badge in der Aula findet ...
+	badgeChemiePopup = WA.room.onEnterLayer("badgeChemie").subscribe(() => {
+		WA.controls.disablePlayerControls();
+		WA.ui.openPopup("badge4", 'ein(e) Buchstabe/Zahl des Lösungswortes: 2', [{
+			label: "schliessen",
+			className: "primary",
+			callback: (popup) => {
+				WA.controls.restorePlayerControls();
+				// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
+				popup.close();
+			}
+		}]);
+	});
+
+	// Schließe Popup, wenn man map verlässt.
+	WA.room.onLeaveLayer("badgeChemie").subscribe(() => {
+		badgeChemiePopup.close();
+	});
+});
+
+// Ende Alex Badges

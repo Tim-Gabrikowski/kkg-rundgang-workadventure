@@ -1,8 +1,5 @@
 let helloWorldPopup;
-WA.onInit().then(() => {
-	
-	
-	
+WA.onInit().then(() => {	
 	// Popup öffenen, wenn man den Badge in der Aula findet ...
 	badgePhysikPopup = WA.room.onEnterLayer("Physik-Trigger").subscribe(() => {
 		WA.controls.disablePlayerControls();
