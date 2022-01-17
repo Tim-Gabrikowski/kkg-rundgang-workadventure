@@ -21,7 +21,5 @@ WA.onInit().then(() => {
 	WA.room.onLeaveLayer("badgeAula").subscribe(() => {
 		badgeAulaPopup.close();
 	});
-	
-	
-	
+		
 });
