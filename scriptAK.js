@@ -1,4 +1,4 @@
-let helloWorldPopup;
+
 WA.onInit().then(() => {
 	// Popup öffenen, wenn man die Schule betritt...
 	/*eingangsPopup = WA.room.onEnterLayer("eingang").subscribe(() => {
