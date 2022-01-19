@@ -76,9 +76,16 @@ WA.room.onLeaveLayer("trigger/Trigger-Bio2").subscribe(() => {
 
 /*
  *
- *================"POPUPS/EASTEREGGS"================
+ *================"POPUPS/EASTEREGGS/MENÜS"================
  *
  */
+
+//Anleitung im Menü:
+const menu = WA.ui.registerMenuCommand("Anleitung", {
+	iframe: "../intro.html",
+});
+
+//EasterEgg Stuhl
 let EasterEggStuhl;
 EasterEggStuhl = WA.room
 	.onEnterLayer("easterEggs/Stuhl-EasterEgg")
@@ -94,39 +101,46 @@ EasterEggStuhl = WA.room
 			},
 		]);
 	});
-	
-	
-// -------------------Popup Badges im Mint Bereich ----------------	
+
+// -------------------Popup Badges im Mint Bereich ----------------
 let physikBadgePopup;
 physikBadgePopup = WA.room
 	.onEnterLayer("easterEggs/badgePhysik")
 	.subscribe(() => {
-		WA.ui.openPopup("badge3", 'ein(e) Buchstabe/Zahl des Lösungswortes: T', [
-			{
-				label: "Schliessen",
-				className: "primary",
-				callback: (popup) => {
-					// Close the popup when the "Close" button is pressed.
-					popup.close();
+		WA.ui.openPopup(
+			"badge3",
+			"ein(e) Buchstabe/Zahl des Lösungswortes: T",
+			[
+				{
+					label: "Schliessen",
+					className: "primary",
+					callback: (popup) => {
+						// Close the popup when the "Close" button is pressed.
+						popup.close();
+					},
 				},
-			},
-		]);
+			]
+		);
 	});
-	
+
 let chemieBadgePopup;
 chemieBadgePopup = WA.room
 	.onEnterLayer("easterEggs/badgeChemie")
 	.subscribe(() => {
-		WA.ui.openPopup("badge4", 'ein(e) Buchstabe/Zahl des Lösungswortes: 2', [
-			{
-				label: "Schliessen",
-				className: "primary",
-				callback: (popup) => {
-					// Close the popup when the "Close" button is pressed.
-					popup.close();
+		WA.ui.openPopup(
+			"badge4",
+			"ein(e) Buchstabe/Zahl des Lösungswortes: 2",
+			[
+				{
+					label: "Schliessen",
+					className: "primary",
+					callback: (popup) => {
+						// Close the popup when the "Close" button is pressed.
+						popup.close();
+					},
 				},
-			},
-		]);
+			]
+		);
 	});
 //------------- Ende Popup Badges Mint	--------------------------------------
 
@@ -320,6 +334,3 @@ for (var i = 0; i < sprueche.length; i++) {
 }
 //randomise the Array:
 sprueche.sort(() => Math.random() - 0.5);
-
-
-

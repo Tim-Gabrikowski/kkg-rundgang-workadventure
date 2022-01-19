@@ -181,7 +181,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"https:\/\/tim-gabrikowski.github.io\/kkg-rundgang-workadventure\/rooms\/testScript.js"
+         "value":"testScript.js"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.7.2",

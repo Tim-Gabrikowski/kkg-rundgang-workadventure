@@ -1,3 +1,4 @@
-const menu = WA.ui.registerMenuCommand("menu test", {
-	iframe: "iFrame-Test.html",
+//Anleitung im Menü:
+const menu = WA.ui.registerMenuCommand("Anleitung", {
+	iframe: "../intro.html",
 });
