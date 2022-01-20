@@ -165,11 +165,6 @@ let EasterEggSprueche = WA.room.onEnterLayer("easterEggs/Physik-Trigger").subscr
 			}
 		}
 	]);
-	
-	setTimeout(() =>
-	{
-		EasterEggSprueche.close();
-	}, 5000);
 });
 
 var sprueche =
