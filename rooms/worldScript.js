@@ -24,7 +24,7 @@ function popup(code, idx)
 
 function badge(idx)
 {
-	var code = localStorage.getItem("code");
+	/*var code = localStorage.getItem("code");
 	if(code == null)
 	{
 		var req = new XMLHttpRequest();
@@ -39,7 +39,9 @@ function badge(idx)
 		return;
 	}
 
-	popup(code, idx);
+	popup(code, idx);*/
+
+	popup("ABCDEFG", idx);
 }
 
 let physikBadgePopup, chemieBadgePopup, badgeAulaPopup,
@@ -56,7 +58,7 @@ WA.onInit().then(() =>
 
 	WA.room.onLeaveLayer("easterEggs/badgePhysik").subscribe(() =>
 	{
-		physikBadgePopup.close();
+		if(physikBadgePopup != null) { physikBadgePopup.close(); }
 	});
 
 	/* Badge Chemie */
@@ -67,7 +69,7 @@ WA.onInit().then(() =>
 
 	WA.room.onLeaveLayer("easterEggs/badgeChemie").subscribe(() =>
 	{
-		chemieBadgePopup.close();
+		if(chemieBadgePopup != null) { chemieBadgePopup.close(); }
 	});
 
 	/* Badge Aula */
@@ -78,7 +80,7 @@ WA.onInit().then(() =>
 
 	WA.room.onLeaveLayer("badgeAula").subscribe(() =>
 	{
-		badgeAulaPopup.close();
+		if(badgeAulaPopup != null) { badgeAulaPopup.close(); }
 	});
 
 	/* Badge Bibliothek */
@@ -89,7 +91,7 @@ WA.onInit().then(() =>
 
 	WA.room.onLeaveLayer("badgeBibliothek").subscribe(() =>
 	{
-		badgeBibliothekPopup.close();
+		if(badgeBibliothekPopup != null) { badgeBibliothekPopup.close(); }
 	});
 
 	/* Badge Informatik */
@@ -100,7 +102,7 @@ WA.onInit().then(() =>
 
 	WA.room.onLeaveLayer("badgeInformatik").subscribe(() =>
 	{
-		badgeInformatikPopup.close();
+		if(badgeInformatikPopup != null) { badgeInformatikPopup.close(); }
 	});
 
 	/* Badge Klassenraum */
@@ -111,7 +113,7 @@ WA.onInit().then(() =>
 
 	WA.room.onLeaveLayer("badgeKlassenraum").subscribe(() =>
 	{
-		badgeKlassenraumPopup.close();
+		if(badgeKlassenraumPopup != null) { badgeKlassenraumPopup.close(); }
 	});
 
 	/* Badge Eingang */
@@ -122,7 +124,7 @@ WA.onInit().then(() =>
 
 	WA.room.onLeaveLayer("badgeEingang").subscribe(() =>
 	{
-		badgeEingangPopup.close();
+		if(badgeEingangPopup != null) { badgeEingangPopup.close(); }
 	});
 });
 
