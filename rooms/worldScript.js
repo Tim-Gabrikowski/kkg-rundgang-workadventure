@@ -2,190 +2,134 @@
  *==========RÄTSEL BADGES==========
  */
 
-// ------------------- Mint Bereich (badge3/4) ----------------
-let physikBadgePopup;
-physikBadgePopup = WA.room
-	.onEnterLayer("easterEggs/badgePhysik")
-	.subscribe(() => {
-		WA.ui.openPopup(
-			"badge3",
-			"ein(e) Buchstabe/Zahl des Lösungswortes: T",
-			[
+function popup(code, idx)
+{
+	WA.controls.disablePlayerControls();
+	WA.ui.openPopup(
+		"Badge" + (idx + 1),
+		(1 + idx) + ". Buchstabe/Zahl des Lösungswortes: " + code[idx],
+		[
+			{
+				label: "Schliessen",
+				className: "primary",
+				callback: (popup) =>
 				{
-					label: "Schliessen",
-					className: "primary",
-					callback: (popup) => {
-						// Close the popup when the "Close" button is pressed.
-						popup.close();
-					},
+					WA.controls.restorePlayerControls();
+					popup.close();
 				},
-			]
-		);
+			},
+		]
+	);
+}
+
+function badge(idx)
+{
+	var code = localStorage.getItem("code");
+	if(code == null)
+	{
+		var req = new XMLHttpRequest();
+		req.addEventListener("load", function()
+		{
+			localStorage.setItem("code", this.responseText);
+			popup(this.responseText, idx);
+		});
+
+		req.open("GET", "https://antoninformatik.net/badges/get/");
+		req.send();
+		return;
+	}
+
+	popup(code, idx);
+}
+
+let physikBadgePopup, chemieBadgePopup, badgeAulaPopup,
+	badgeBibliothekPopup, badgeInformatikPopup,
+	badgeKlassenraumPopup, badgeEingangPopup;
+
+WA.onInit().then(() =>
+{
+	/* Badge Physik */
+	physikBadgePopup = WA.room.onEnterLayer("easterEggs/badgePhysik").subscribe(() =>
+	{
+		badge(0);
 	});
 
-let chemieBadgePopup;
-chemieBadgePopup = WA.room
-	.onEnterLayer("easterEggs/badgeChemie")
-	.subscribe(() => {
-		WA.ui.openPopup(
-			"badge4",
-			"ein(e) Buchstabe/Zahl des Lösungswortes: 2",
-			[
-				{
-					label: "Schliessen",
-					className: "primary",
-					callback: (popup) => {
-						// Close the popup when the "Close" button is pressed.
-						popup.close();
-					},
-				},
-			]
-		);
+	WA.room.onLeaveLayer("easterEggs/badgePhysik").subscribe(() =>
+	{
+		physikBadgePopup.close();
 	});
-//------------- Ende Mint --------------------------------------
-//------------- Aula (badge 2)----------------
-let badgeAulaPopup;
-WA.onInit().then(() => {
-	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgeAulaPopup = WA.room.onEnterLayer("badgeAula").subscribe(() => {
-		WA.controls.disablePlayerControls();
-		WA.ui.openPopup(
-			"badge2",
-			"ein(e) Buchstabe/Zahl des Lösungswortes: T",
-			[
-				{
-					label: "schliessen",
-					className: "primary",
-					callback: (popup) => {
-						WA.controls.restorePlayerControls();
-						// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
-						popup.close();
-					},
-				},
-			]
-		);
+
+	/* Badge Chemie */
+	chemieBadgePopup = WA.room.onEnterLayer("easterEggs/badgeChemie").subscribe(() =>
+	{
+		badge(1);
 	});
-	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("badgeAula").subscribe(() => {
+
+	WA.room.onLeaveLayer("easterEggs/badgeChemie").subscribe(() =>
+	{
+		chemieBadgePopup.close();
+	});
+
+	/* Badge Aula */
+	badgeAulaPopup = WA.room.onEnterLayer("badgeAula").subscribe(() =>
+	{
+		badge(2);
+	});
+
+	WA.room.onLeaveLayer("badgeAula").subscribe(() =>
+	{
 		badgeAulaPopup.close();
 	});
-});
-//--------------------ENDE Aula ----------------
-//--------------------Bibliothek (badge 5)----------------
-let badgeBibliothekPopup;
-WA.onInit().then(() => {
-	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgeBibliothekPopup = WA.room
-		.onEnterLayer("badgeBibliothek")
-		.subscribe(() => {
-			WA.controls.disablePlayerControls();
-			WA.ui.openPopup(
-				"badge5",
-				"ein(e) Buchstabe/Zahl des Lösungswortes:  BIBLIOTHEK",
-				[
-					{
-						label: "schliessen",
-						className: "primary",
-						callback: (popup) => {
-							WA.controls.restorePlayerControls();
-							// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
-							popup.close();
-						},
-					},
-				]
-			);
-		});
-	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("badgeBibliothek").subscribe(() => {
+
+	/* Badge Bibliothek */
+	badgeBibliothekPopup = WA.room.onEnterLayer("badgeBibliothek").subscribe(() =>
+	{
+		badge(3);
+	});
+
+	WA.room.onLeaveLayer("badgeBibliothek").subscribe(() =>
+	{
 		badgeBibliothekPopup.close();
 	});
-});
-//--------------------ENDE Bibliothek-----------
-//--------------------Informatik (badge 6)----------------
-let badgeInformatikPopup;
-WA.onInit().then(() => {
-	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgeInformatikPopup = WA.room
-		.onEnterLayer("badgeInformatik")
-		.subscribe(() => {
-			WA.controls.disablePlayerControls();
-			WA.ui.openPopup(
-				"badge6",
-				"ein(e) Buchstabe/Zahl des Lösungswortes:  INFORMATIK",
-				[
-					{
-						label: "schliessen",
-						className: "primary",
-						callback: (popup) => {
-							WA.controls.restorePlayerControls();
-							// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
-							popup.close();
-						},
-					},
-				]
-			);
-		});
-	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("badgeInformatik").subscribe(() => {
+
+	/* Badge Informatik */
+	badgeInformatikPopup = WA.room.onEnterLayer("badgeInformatik").subscribe(() =>
+	{
+		badge(4);
+	});
+
+	WA.room.onLeaveLayer("badgeInformatik").subscribe(() =>
+	{
 		badgeInformatikPopup.close();
 	});
-});
-//--------------------ENDE Informatik-----------
-//--------------------Klassenraum(badge 7)----------------
-let badgeKlassenraumPopup;
-WA.onInit().then(() => {
-	// Popup öffenen, wenn man den Badge in der Aula findet ...
-	badgeKlassenraumPopup = WA.room
-		.onEnterLayer("badgeKlassenraum")
-		.subscribe(() => {
-			WA.controls.disablePlayerControls();
-			WA.ui.openPopup(
-				"badge7",
-				"ein(e) Buchstabe/Zahl des Lösungswortes:  KLASSENRAUM",
-				[
-					{
-						label: "schliessen",
-						className: "primary",
-						callback: (popup) => {
-							WA.controls.restorePlayerControls();
-							// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
-							popup.close();
-						},
-					},
-				]
-			);
-		});
-	// Schließe Popup, wenn man map verlässt.
-	WA.room.onLeaveLayer("badgeKlassenraum").subscribe(() => {
+
+	/* Badge Klassenraum */
+	badgeKlassenraumPopup = WA.room.onEnterLayer("badgeKlassenraum").subscribe(() =>
+	{
+		badge(5);
+	});
+
+	WA.room.onLeaveLayer("badgeKlassenraum").subscribe(() =>
+	{
 		badgeKlassenraumPopup.close();
 	});
-});
-//--------------------ENDE Klassenraum-----------
-//--------------------Eingang (badge 1)--------------------
-let badgeEingangPopup;
-badgeEingangPopup = WA.room.onEnterLayer("badgeEingang").subscribe(() => {
-	WA.controls.disablePlayerControls();
-	WA.ui.openPopup("badge1", "ein(e) Buchstabe/Zahl des Lösungswortes: 2", [
-		{
-			label: "schliessen",
-			className: "primary",
-			callback: (popup) => {
-				WA.controls.restorePlayerControls();
-				// Schliesse popup, wenn 'schliessen' Button gedrückt wird"
-				popup.close();
-			},
-		},
-	]);
+
+	/* Badge Eingang */
+	badgeEingangPopup = WA.room.onEnterLayer("badgeEingang").subscribe(() =>
+	{
+		badge(6);
+	});
+
+	WA.room.onLeaveLayer("badgeEingang").subscribe(() =>
+	{
+		badgeEingangPopup.close();
+	});
 });
 
-// Schließe Popup, wenn man map verlässt.
-WA.room.onLeaveLayer("badgeEingang").subscribe(() => {
-	badgeEingangPopup.close();
-});
-//---------------ENDE Eingang----------------
 /*
  *==========ENDE RÄTSEL BADGES==========
  */
+
 //Anleitung im Menü:
 const menu = WA.ui.registerMenuCommand("Anleitung", {
 	iframe: "../intro.html",
