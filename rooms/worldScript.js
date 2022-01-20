@@ -120,6 +120,7 @@ WA.room.onEnterLayer("stageTrigger").subscribe(() =>
 /* Easter Egg: Tim's Stuhl */
 let EasterEggStuhl = WA.room.onEnterLayer("easterEggs/Stuhl-EasterEgg").subscribe(() =>
 {
+	WA.controls.disablePlayerControls();
 	WA.ui.openPopup("meinStuhl", `Tim: Das ist mein Platz!`,
 	[
 		{
@@ -127,6 +128,7 @@ let EasterEggStuhl = WA.room.onEnterLayer("easterEggs/Stuhl-EasterEgg").subscrib
 			className: "primary",
 			callback: (popup) =>
 			{
+				WA.controls.restorePlayerControls();
 				popup.close();
 			}
 		}
@@ -150,6 +152,7 @@ function pickSpruch()
 
 let EasterEggSprueche = WA.room.onEnterLayer("easterEggs/Physik-Trigger").subscribe(() =>
 {
+	WA.controls.disablePlayerControls();
 	WA.ui.openPopup("sprueche", `${pickSpruch()}`,
 	[
 		{
@@ -157,6 +160,7 @@ let EasterEggSprueche = WA.room.onEnterLayer("easterEggs/Physik-Trigger").subscr
 			className: "primary",
 			callback: (popup) =>
 			{
+				WA.controls.restorePlayerControls();
 				popup.close();
 			}
 		}
