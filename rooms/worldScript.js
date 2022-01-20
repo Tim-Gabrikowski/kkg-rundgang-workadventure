@@ -1,4 +1,8 @@
 /* Badges */
+let physikBadgePopup, chemieBadgePopup, badgeAulaPopup,
+	badgeBibliothekPopup, badgeInformatikPopup,
+	badgeKlassenraumPopup, badgeEingangPopup;
+
 function popup(code, idx)
 {
 	WA.controls.disablePlayerControls();
@@ -41,10 +45,6 @@ function badge(idx)
 	popup("ABCDEFG", idx);
 }
 
-let physikBadgePopup, chemieBadgePopup, badgeAulaPopup,
-	badgeBibliothekPopup, badgeInformatikPopup,
-	badgeKlassenraumPopup, badgeEingangPopup;
-
 /* Badge Eingang */
 badgeEingangPopup = WA.room.onEnterLayer("badgeEingang").subscribe(() =>
 {
@@ -85,6 +85,24 @@ badgeInformatikPopup = WA.room.onEnterLayer("badgeInformatik").subscribe(() =>
 badgeKlassenraumPopup = WA.room.onEnterLayer("badgeKlassenraum").subscribe(() =>
 {
 	badge(6);
+});
+
+/* Eingang Popup */
+let eingangsPopup = WA.room.onEnterLayer("eingang").subscribe(() =>
+{
+	WA.controls.disablePlayerControls();
+	WA.ui.openPopup("popupStart", 'Herzlich Willkommen!',
+	[
+		{
+			label: "schliessen",
+			className: "primary",
+			callback: (popup) =>
+			{
+				WA.controls.restorePlayerControls();
+				popup.close();
+			}
+		}
+	]);
 });
 
 /* Intro */
