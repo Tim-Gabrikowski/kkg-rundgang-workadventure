@@ -25,7 +25,7 @@ function popup(code, idx)
 
 function badge(idx)
 {
-	var code = localStorage.getItem("code");
+	var code = null; // localStorage.getItem("code");
 	if(code == null)
 	{
 		var req = new XMLHttpRequest();
