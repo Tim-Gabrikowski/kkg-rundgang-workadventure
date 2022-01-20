@@ -31,7 +31,7 @@ function badge(idx)
 		var req = new XMLHttpRequest();
 		req.addEventListener("load", function()
 		{
-			localStorage.setItem("code", this.responseText);
+			//localStorage.setItem("code", this.responseText);
 			popup(this.responseText, idx);
 		});
 
