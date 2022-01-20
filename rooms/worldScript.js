@@ -6,7 +6,7 @@ function popup(code, idx)
 {
 	WA.controls.disablePlayerControls();
 	WA.ui.openPopup(
-		"Badge" + (idx + 1),
+		"badge" + (idx + 1),
 		(1 + idx) + ". Buchstabe/Zahl des Lösungswortes: " + code[idx],
 		[
 			{
@@ -53,7 +53,7 @@ WA.onInit().then(() =>
 	/* Badge Physik */
 	physikBadgePopup = WA.room.onEnterLayer("easterEggs/badgePhysik").subscribe(() =>
 	{
-		badge(0);
+		badge(3);
 	});
 
 	WA.room.onLeaveLayer("easterEggs/badgePhysik").subscribe(() =>
@@ -64,7 +64,7 @@ WA.onInit().then(() =>
 	/* Badge Chemie */
 	chemieBadgePopup = WA.room.onEnterLayer("easterEggs/badgeChemie").subscribe(() =>
 	{
-		badge(1);
+		badge(2);
 	});
 
 	WA.room.onLeaveLayer("easterEggs/badgeChemie").subscribe(() =>
@@ -75,7 +75,7 @@ WA.onInit().then(() =>
 	/* Badge Aula */
 	badgeAulaPopup = WA.room.onEnterLayer("badgeAula").subscribe(() =>
 	{
-		badge(2);
+		badge(1);
 	});
 
 	WA.room.onLeaveLayer("badgeAula").subscribe(() =>
@@ -86,7 +86,7 @@ WA.onInit().then(() =>
 	/* Badge Bibliothek */
 	badgeBibliothekPopup = WA.room.onEnterLayer("badgeBibliothek").subscribe(() =>
 	{
-		badge(3);
+		badge(4);
 	});
 
 	WA.room.onLeaveLayer("badgeBibliothek").subscribe(() =>
@@ -97,7 +97,7 @@ WA.onInit().then(() =>
 	/* Badge Informatik */
 	badgeInformatikPopup = WA.room.onEnterLayer("badgeInformatik").subscribe(() =>
 	{
-		badge(4);
+		badge(5);
 	});
 
 	WA.room.onLeaveLayer("badgeInformatik").subscribe(() =>
@@ -108,7 +108,7 @@ WA.onInit().then(() =>
 	/* Badge Klassenraum */
 	badgeKlassenraumPopup = WA.room.onEnterLayer("badgeKlassenraum").subscribe(() =>
 	{
-		badge(5);
+		badge(6);
 	});
 
 	WA.room.onLeaveLayer("badgeKlassenraum").subscribe(() =>
@@ -119,7 +119,7 @@ WA.onInit().then(() =>
 	/* Badge Eingang */
 	badgeEingangPopup = WA.room.onEnterLayer("badgeEingang").subscribe(() =>
 	{
-		badge(6);
+		badge(0);
 	});
 
 	WA.room.onLeaveLayer("badgeEingang").subscribe(() =>
