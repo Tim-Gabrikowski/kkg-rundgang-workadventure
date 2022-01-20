@@ -25,7 +25,7 @@ function popup(code, idx)
 
 function badge(idx)
 {
-	/*var code = localStorage.getItem("code");
+	var code = localStorage.getItem("code");
 	if(code == null)
 	{
 		var req = new XMLHttpRequest();
@@ -40,9 +40,9 @@ function badge(idx)
 		return;
 	}
 
-	popup(code, idx);*/
+	popup(code, idx);
 
-	popup("ABCDEFG", idx);
+	//popup("ABCDEFG", idx);
 }
 
 /* Badge Eingang */
