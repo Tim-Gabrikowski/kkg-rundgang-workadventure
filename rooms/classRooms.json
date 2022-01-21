@@ -42,7 +42,7 @@
                 {
                  "name":"exitSceneUrl",
                  "type":"string",
-                 "value":"\/kkg-Rundgang-workadventure\/map.json#E1"
+                 "value":"\/kkg-rundgang-workadventure\/map.json#E1"
                 }],
          "type":"tilelayer",
          "visible":true,
