@@ -505,7 +505,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"\/kkg-rundgang-workadventure\/rooms\/worldScript.js"
+         "value":"https:\/\/tim-gabrikowski.github.io\/kkg-rundgang-workadventure\/rooms\/worldScript.js"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
