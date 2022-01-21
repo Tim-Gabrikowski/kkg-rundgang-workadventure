@@ -597,15 +597,6 @@
                         }]
                 }, 
                 {
-                 "id":1,
-                 "properties":[
-                        {
-                         "name":"start",
-                         "type":"string",
-                         "value":"entry"
-                        }]
-                }, 
-                {
                  "id":7,
                  "properties":[
                         {
