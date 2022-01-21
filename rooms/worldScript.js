@@ -1,8 +1,4 @@
 /* Badges */
-let physikBadgePopup, chemieBadgePopup, badgeAulaPopup,
-	badgeBibliothekPopup, badgeInformatikPopup,
-	badgeKlassenraumPopup, badgeEingangPopup;
-
 function popup(code, idx)
 {
 	WA.controls.disablePlayerControls();
@@ -25,46 +21,36 @@ function popup(code, idx)
 
 function badge(idx)
 {
-	var code = null; // localStorage.getItem("code");
-	if(code == null)
+	var req = new XMLHttpRequest();
+	req.addEventListener("load", function()
 	{
-		var req = new XMLHttpRequest();
-		req.addEventListener("load", function()
-		{
-			//localStorage.setItem("code", this.responseText);
-			popup(this.responseText, idx);
-		});
+		popup(this.responseText, idx);
+	});
 
-		req.open("GET", "https://antoninformatik.net/badges/get/");
-		req.send();
-		return;
-	}
-
-	popup(code, idx);
-
-	//popup("ABCDEFG", idx);
+	req.open("GET", "https://antoninformatik.net/badges/get/?name=" + WA.player.name);
+	req.send();
 }
 
 /* Badge Eingang */
-badgeEingangPopup = WA.room.onEnterLayer("badgeEingang").subscribe(() => { badge(0); });
+let badgeEingangPopup = WA.room.onEnterLayer("badgeEingang").subscribe(() => { badge(0); });
 
 /* Badge Aula */
-badgeAulaPopup = WA.room.onEnterLayer("badgeAula").subscribe(() => { badge(1); });
+let badgeAulaPopup = WA.room.onEnterLayer("badgeAula").subscribe(() => { badge(1); });
 
 /* Badge Physik */
-physikBadgePopup = WA.room.onEnterLayer("easterEggs/badgePhysik").subscribe(() => { badge(2); });
+let physikBadgePopup = WA.room.onEnterLayer("easterEggs/badgePhysik").subscribe(() => { badge(2); });
 
 /* Badge Chemie */
-chemieBadgePopup = WA.room.onEnterLayer("easterEggs/badgeChemie").subscribe(() => { badge(3); });
+let chemieBadgePopup = WA.room.onEnterLayer("easterEggs/badgeChemie").subscribe(() => { badge(3); });
 
 /* Badge Bibliothek */
-badgeBibliothekPopup = WA.room.onEnterLayer("badgeBibliothek").subscribe(() => { badge(4); });
+let badgeBibliothekPopup = WA.room.onEnterLayer("badgeBibliothek").subscribe(() => { badge(4); });
 
 /* Badge Informatik */
-badgeInformatikPopup = WA.room.onEnterLayer("badgeInformatik").subscribe(() => { badge(5); });
+let badgeInformatikPopup = WA.room.onEnterLayer("badgeInformatik").subscribe(() => { badge(5); });
 
 /* Badge Klassenraum */
-badgeKlassenraumPopup = WA.room.onEnterLayer("badgeKlassenraum").subscribe(() => { badge(6); });
+let badgeKlassenraumPopup = WA.room.onEnterLayer("badgeKlassenraum").subscribe(() => { badge(6); });
 
 /* Eingang Popup */
 let eingangsPopup = WA.room.onEnterLayer("eingang").subscribe(() =>
