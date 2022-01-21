@@ -94,7 +94,7 @@ let eingangsPopup = WA.room.onEnterLayer("eingang").subscribe(() => {
 const menu = WA.ui.registerMenuCommand("Anleitung", {
 	iframe: "../intro.html",
 });
-const menu = WA.ui.registerMenuCommand("Karte", {
+const map = WA.ui.registerMenuCommand("Karte", {
 	iframe: "../map.html",
 });
 
