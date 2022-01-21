@@ -505,7 +505,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"\/rooms\/worldScript.js"
+         "value":"\/kkg-rundgang-workadventure\/rooms\/worldScript.js"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
